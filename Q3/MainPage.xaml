@@ -10,9 +10,26 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+
+            <VisualStateGroup >
+                <VisualState x:Name="validEmail">
+                    <VisualState.StateTriggers>
+                        <local:RegexStateTrigger Value="{x:Bind aa.Text, Mode=OneWay}"
+													Expression="^aaaa$"
+													Options="ExplicitCapture" 
+													/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="aa.Background" Value="Red" />
+                      
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <TextBox x:Name="aa"  HorizontalAlignment="Center" MinWidth="1000" MinHeight="250" FontSize="100"  TextWrapping="Wrap" PlaceholderText="TextBox" VerticalAlignment="Center">
            
-                    <Interactivity:Interaction.Behaviors>
+                    <!--<Interactivity:Interaction.Behaviors>
                         <Core:DataTriggerBehavior Binding="{Binding Text, ElementName=aa}" ComparisonCondition="Equal" Value="aaaa">
                     <Core:ChangePropertyAction TargetObject="{Binding ElementName=aa}" PropertyName="Background" Value="Red" />
                         
@@ -22,7 +39,7 @@
 
                 </Core:DataTriggerBehavior>
 
-            </Interactivity:Interaction.Behaviors>
+            </Interactivity:Interaction.Behaviors>-->
             
         </TextBox>
 
